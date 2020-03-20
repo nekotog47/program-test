@@ -201,7 +201,7 @@
 			return countDenomi(countNum);
 		});
 		//配列を文字列に変換し結果出力
-		result.innerHTML = resultHtml.join('');
+		result.innerHTML = `<div class="denomiWrap">${resultHtml.join('')}</div>`;
 	}
 	/**
 	 * 金種を計算しHTMLとして出力
@@ -212,7 +212,7 @@
 		/**
 		 * 金種計算結果HTML
 		 */
-		let resultHtml = `<dl class="denomi"><div><dt>金額</dt><dd>${countNum}円</dd></div>`;
+		let resultHtml = `<dl class="denomi"><div class="denomiCont"><dt class="denomiTtl">${countNum}円</dt><dd class="denomiDesc">枚数</dd></div>`;
 		/**
 		 * 金種リスト
 		 */
@@ -260,7 +260,7 @@
 			denomis[key].count = Math.floor(countNum / denomis[key].quant);
 			//計算金額を金種で割ったあまりが残りの金額
 			countNum %= denomis[key].quant;
-			resultHtml += `<div><dt>${denomis[key].quant}円<dt><dd>${denomis[key].count}枚</dd></div>`;
+			resultHtml += `<div class="denomiCont"><dt class="denomiTtl">${denomis[key].quant}円</dt><dd class="denomiDesc">${denomis[key].count}枚</dd></div>`;
 		}
 		resultHtml += `</dl>`;
 		return resultHtml;

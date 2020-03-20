@@ -94,3 +94,29 @@ tr:nth-child(odd) {
 .num--buzz {
 	color: blue;
 }
+
+/*-------------------------------------------
+	金種計算
+-------------------------------------------*/
+/* flexで横並びにする
+-------------------------------------------*/
+.denomiWrap,
+.denomiCont {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0;
+	padding: 0;
+}
+.denomi {
+	width: 25%;
+}
+.denomiTtl {
+	width: 70%;
+}
+.denomiDesc {
+	width: 30%;
+}
+.denomiTtl,
+.denomiDesc {
+	margin: 0;
+}
