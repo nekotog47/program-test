@@ -208,7 +208,7 @@
 	 * @param {number} countNum 金種計算金額
 	 * @return {string} resultHtml 金種計算結果HTML
 	 */
-	const countDenomi = (countNum) => {
+	const countDenomi = countNum => {
 		/**
 		 * 金種計算結果HTML
 		 */
