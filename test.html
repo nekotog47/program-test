@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScriptの問題</title>
+	<meta name="robots" content="noindex,nofollow" />
+	<link href="test.css?v=1" rel="stylesheet" />
+</head>
+<body>
+
+<main>
+
+
+
+	<article id="thinking" class="paragraph">
+		<h2>考え方の問題</h2>
+
+		<article id="thinking-first" class="first">
+			<h3>初めに</h3>
+			<ul>
+				<li>考え方を見るためであり正解はありません</li>
+				<li>問題に対する質問は自由</li>
+				<li>考えは背景が緑の黒い枠で囲まれたエリアにHTML中に直接記述してください</li>
+			</ul>
+		</article>
+
+		<article id="thinking-1">
+			<h3>1.お客さんからの問い合わせ</h3>
+			<p>「インターネットが見れないんですけど」と問い合わせがありました。問題を解決するのにどのような意図でどのような質問をしていきますか？</p>
+
+			<div class="result"></div>
+		</article>
+
+
+		<article id="thinking-2">
+			<h3>2.応答が返ってこない</h3>
+			<p>大量にDBに保存されている売上データに対し集計を掛けましたがいくら経っても応答が返ってきません。何をどのように探り解決していきますか？</p>
+
+			<div class="result"></div>
+		</article>
+
+	</article><!-- /#thinking -->
+
+	<article id="program" class="paragraph">
+		<h2>プログラム問題</h2>
+
+		<article id="programfirst" class="first">
+			<h3>初めに</h3>
+			<ul>
+				<li>回答で作ったプログラムは<a target="_blank" href="test.js">test.js</a>もしくは新しく任意にファイルを作成し記述し、このHTMLファイルから呼び出されるようにすること</li>
+				<li>作ったプログラムの出力は、背景が緑の黒い枠で囲まれたエリアに出力すること(4の問題は除く)</li>
+				<li>Chromeの最新で動作すればOKとする</li>
+				<li>ES6やTypeScriptで記述してもOKとする</li>
+				<li>別のライブラリなどを組み込んで使用してもOKとする</li>
+				<li>良いと思った仕様を追加してもOKとする</li>
+				<li>検索してもOKだが、1の問題は出来ないことが開発者になってはいけないレベルで恥ずかしいのでプログラムの文法以外は自力で考えることを推奨</li>
+				<li>問題に対する質問は自由</li>
+			</ul>
+		</article>
+
+
+		<article id="question-fizzbuzz">
+			<h3>1.FizzBuzz問題</h3>
+			<p>1から100までの数をプリントするプログラムを書け。ただし3の倍数のときは数の代わりに「Fizz」と、5の倍数のときは「Buzz」とプリントし、3と5両方の倍数の場合には「FizzBuzz」とプリントすること。</p>
+
+			<div class="result"></div>
+		</article>
+
+		<article id="question-denomination">
+			<h3>2.金種計算問題</h3>
+			<p>金額を引数に渡したら、金種を計算し、それぞれの枚数を出力するプログラムを書け。使用する金種は10000円、5000円、1000円、500円、100円、50円、10円、5円、1円の9種とする。</p>
+
+			<div class="section ">
+				<h4>出力例</h4>
+				19769 => 1=4,5=1,10=1,50=1,100=2,500=1,1000=4,5000=1,10000=1<br>
+				1234 => 1=4,5=0,10=3,50=0,100=2,500=0,1000=1,5000=0,10000=0<br>
+				9281 => 1=1,5=0,10=3,50=1,100=2,500=0,1000=4,5000=1,10000=0<br>
+			</div>
+
+			<div class="result"></div>
+		</article>
+
+
+		<article id="question-recursion">
+			<h3>3.再帰問題</h3>
+			<p><a target="_blank" href="test.js">test.js</a>に<a target="_blank" href="https://ja.wikipedia.org/wiki/%E5%BE%B3%E5%B7%9D%E5%B0%86%E8%BB%8D%E5%AE%B6">徳川家</a>の<a target="_blank" href="https://ja.wikipedia.org/wiki/%E5%BE%B3%E5%B7%9D%E5%B0%86%E8%BB%8D%E5%AE%B6#/media/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:%E5%BE%B3%E5%B7%9D%E5%B0%86%E8%BB%8D%E5%AE%B6%E7%95%A5%E7%B3%BB%E5%9B%B3.svg">家系図</a>を表したobjFamilyTreeという木構造のオブジェクトが記述されている。木を辿り、将軍になった人物が何代目の誰であるかを出力すること。</p>
+
+			<div class="section ">
+				<h4>人物オブジェクト</h4>
+				<table>
+					<tr>
+						<th>Key</th>
+						<th>型</th>
+						<th>必須</th>
+						<th>説明</th>
+					</tr>
+					<tr>
+						<td>name</td><td>文字列</td><td>○</td><td>名称</td>
+					</tr>
+					<tr>
+						<td>generation</td><td>数値</td><td></td><td>何代目将軍かを表す。将軍になってない人物には定義されない。</td>
+					</tr>
+					<tr>
+						<td>children</td><td>配列</td><td></td><td>子供の人物オブジェクトを入れ子に配列に代入</td>
+					</tr>
+				</table>
+			</div>
+
+			<div class="section ">
+				<h4>出力例</h4>
+				1.家康<br>2.秀忠<br>3.家光<br>4.家綱<br>5.綱吉<br>6.家宣<br>7.家継<br>8.吉宗<br>9.家重<br>10.家治<br>11.家斉<br>12.家慶<br>13.家定<br>14.家茂<br>15.慶喜<br>
+			</div>
+
+
+			<div class="result"></div>
+		</article>
+
+
+
+
+	</article><!-- /#program -->
+
+</main>
+
+<script src="test.js?v=1"></script>
+</body>
+</html>
