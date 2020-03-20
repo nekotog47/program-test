@@ -167,7 +167,24 @@
 
 	function testFizzBuzz() {
 		let result = document.querySelector('#question-fizzbuzz .result');
-		result.innerHTML = 'FizzBuzz問題の出力結果';
+		/**
+		 * 出力用HTML
+		 */
+		let resultHtml = '<ol class="numList">';
+		//100までループ
+		for(let num = 1; num <= 100; num++) {
+			if (num % 3 === 0 && num % 5 === 0) {//3と5の倍数のときはFizzBuzz
+				resultHtml += '<li class="num num--fizzBuzz">FizzBuzz</li>';
+			} else if(num % 3 === 0) {//3の倍数のときはFizz
+				resultHtml += '<li class="num num--fizz">Fizz</li>';
+			} else if(num % 5 === 0) {//5の倍数のときはBuzz
+				resultHtml += '<li class="num num--buzz">Buzz</li>';
+			} else {//それ以外は自身の数
+				resultHtml += `<li class="num">${num}</li>`;
+			}
+		}
+		resultHtml += '</ol>';
+		result.innerHTML = resultHtml;
 	}
 
 
