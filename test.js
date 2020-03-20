@@ -190,7 +190,80 @@
 
 	function testDenomination() {
 		let result = document.querySelector('#question-denomination .result');
-		result.innerHTML = '金種計算問題の出力結果';
+		/**
+		 * 計算金額
+		 */
+		const countNums = [19769,1234,9281];
+		/**
+		 * 金種計算結果
+		 */
+		const resultHtml = countNums.map(countNum => {
+			return countDenomi(countNum);
+		});
+		//配列を文字列に変換し結果出力
+		result.innerHTML = resultHtml.join('');
+	}
+	/**
+	 * 金種を計算しHTMLとして出力
+	 * @param {number} countNum 金種計算金額
+	 * @return {string} resultHtml 金種計算結果HTML
+	 */
+	const countDenomi = (countNum) => {
+		/**
+		 * 金種計算結果HTML
+		 */
+		let resultHtml = `<dl class="denomi"><div><dt>金額</dt><dd>${countNum}円</dd></div>`;
+		/**
+		 * 金種リスト
+		 */
+		let denomis = {
+			yen10000: {
+				quant: 10000,
+				count: 0
+			},
+			yen5000: {
+				quant: 5000,
+				count: 0
+			},
+			yen1000: {
+				quant: 1000,
+				count: 0
+			},
+			yen500: {
+				quant: 500,
+				count: 0
+			},
+			yen100: {
+				quant: 100,
+				count: 0
+			},
+			yen50: {
+				quant: 50,
+				count: 0
+			},
+			yen10: {
+				quant: 10,
+				count: 0
+			},
+			yen5: {
+				quant: 5,
+				count: 0
+			},
+			yen1: {
+				quant: 1,
+				count: 0
+			}
+		}
+		//金種分ループ
+		for(let key in denomis) {
+			//計算金額を金種で割った商が金種の枚数
+			denomis[key].count = Math.floor(countNum / denomis[key].quant);
+			//計算金額を金種で割ったあまりが残りの金額
+			countNum %= denomis[key].quant;
+			resultHtml += `<div><dt>${denomis[key].quant}円<dt><dd>${denomis[key].count}枚</dd></div>`;
+		}
+		resultHtml += `</dl>`;
+		return resultHtml;
 	}
 
 	function testRecursion() {
