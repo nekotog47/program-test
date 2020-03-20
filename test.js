@@ -2,7 +2,6 @@
 
 (function(window, undefined) {
 
-
 	let objFamilyTree = {
 		name: '家康',
 		generation: 1,
@@ -140,7 +139,7 @@
 								children: [
 									{
 										name: '慶喜',
-										generation: 14
+										generation: 15
 									}
 								]
 							}
@@ -267,10 +266,63 @@
 	}
 
 	function testRecursion() {
-		console.log(objFamilyTree);
-
+		//console.log(objFamilyTree);
 		let result = document.querySelector('#question-recursion .result');
-		result.innerHTML = '再帰問題の出力結果';
+		/**
+		 * 徳川将軍オブジェクト
+		 */
+		const generalGeneration = getGeneralGeneration(objFamilyTree);
+		/**
+		 * 出力用HTML
+		 */
+		const resultHtml = generalGeneration.map(general => {
+			return `<li class="general">第${general.num}代将軍：${general.name}</li>`;
+		});
+		//配列を文字列にして出力
+		result.innerHTML = `<ol class="generalList">${resultHtml.join('')}</ol>`;
+	}
+	/**
+	 * 徳川家系図から将軍を在職順に抜き出す
+	 * @param {Object} objFamilyTree 徳川家系図
+	 * @retrun {Object} generations 在職順の将軍オブジェクト
+	 */
+	const getGeneralGeneration = objFamilyTree => {
+		/**
+		 * 将軍格納用配列
+		 */
+		const generations = [];
+		/**
+		 * 自身が将軍なら配列にpush、子がいるか確認し再帰処理
+		 * @param {Object} objFamily 徳川家系図
+		 */
+		const familyWorker = objFamily => {
+			//自身が将軍なら
+			if(objFamily.generation !== undefined) {
+				//配列に代と名前をpush
+				generations.push({
+					num: objFamily.generation,
+					name: objFamily.name
+				});
+			}
+			//子がいるか確認
+			for (var key in objFamily) {
+				//childrenのみ処理する
+				if (key === "children") {
+					//childrenで再帰処理
+					objFamily[key].forEach(child => {
+						familyWorker(child);
+					});
+				}
+			}
+		}
+		familyWorker(objFamilyTree);
+		//代順に並び替え
+		generations.sort((a,b) => {
+			if(a.num < b.num) return -1;
+			if(a.num > b.num) return 1;
+			return 0;
+		});
+		return generations;
 	}
 
 

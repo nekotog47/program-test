@@ -120,3 +120,12 @@ tr:nth-child(odd) {
 .denomiDesc {
 	margin: 0;
 }
+
+/*-------------------------------------------
+	徳川将軍
+-------------------------------------------*/
+.generalList {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
